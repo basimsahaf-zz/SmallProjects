@@ -1,0 +1,41 @@
+#This program gives us the 'Line of Best Fit' from a given data of 
+# x and y coordinates.
+
+print "Welcome to the Best Line Generator"
+sleep(2)
+print "We are starting...."
+sleep(2)
+print "Generating the most favourable curve for you"
+sleep(3)
+
+import matplotlib.pyplot as plt
+
+list_1= [1,2,3,4,5,6,7,8,9,10,1.2,2.2,3.3,4.4,5.5,6.6,7.7,8.8,9.9,10.10]
+list_2= [10.10,9.9,8.8,7.7,6.6,5.5,4.4,3.3,2.2,1.1,10,9,8,7,6,5,4,3,2,1] 
+
+import numpy as np
+
+list_sqr_x=list(np.array(list_1)**2)
+list_sqr_y=list(np.array(list_2)**2)
+
+sum_x= sum(list_1)
+sum_y= sum(list_2)
+sum_x_2=sum(list_sqr_x)
+sum_y_2=sum(list_sqr_x)
+
+list_x= np.array(list_1)
+list_y=np.array(list_2)
+list_xy= list_x * list_y
+sum_xy= sum(list_xy)
+
+slope= float (((len(list_1) * sum_xy) - (sum_x * sum_y))/((len(list_1) * sum_x_2) - (sum_x**2)))
+intercept= float (((sum_x_2 * sum_y) - (sum_x * sum_xy)) / (((len(list_1)) * sum_x_2) - (sum_x**2)))
+
+plt.scatter(list_1,list_2)
+plt.xlabel('x-values')
+plt.ylabel('y-values')
+plt.title('Line of best fit')
+abline_values = [slope * i + intercept for i in list_1]
+plt.scatter(list_1,list_2)
+plt.plot(list_1, abline_values)
+plt.show()
