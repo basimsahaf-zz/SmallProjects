@@ -31,7 +31,6 @@ sum_xy= sum(list_xy)
 slope= float (((len(list_1) * sum_xy) - (sum_x * sum_y))/((len(list_1) * sum_x_2) - (sum_x**2)))
 intercept= float (((sum_x_2 * sum_y) - (sum_x * sum_xy)) / (((len(list_1)) * sum_x_2) - (sum_x**2)))
 
-plt.scatter(list_1,list_2)
 plt.xlabel('x-values')
 plt.ylabel('y-values')
 plt.title('Line of best fit')
