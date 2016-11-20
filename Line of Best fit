@@ -34,7 +34,7 @@ intercept= float (((sum_x_2 * sum_y) - (sum_x * sum_xy)) / (((len(list_1)) * sum
 plt.xlabel('x-values')
 plt.ylabel('y-values')
 plt.title('Line of best fit')
-abline_values = [slope * i + intercept for i in list_1]
+y_coordinates = [slope * i + intercept for i in list_1]
 plt.scatter(list_1,list_2)
-plt.plot(list_1, abline_values)
+plt.plot(list_1, y_coordinates)
 plt.show()
