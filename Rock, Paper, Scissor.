@@ -1,0 +1,53 @@
+"""
+Created on Thu Nov 17 02:41:29 2016
+
+@author: basimsahaf
+"""
+
+# We'll be playing rock, paper and scissors. Enjoy the game as  well as the code.
+from random import randint
+from time import sleep
+options=["R", "P", "S"]
+lost = "You Lost!"
+won = "Hey, you won!"
+
+def decide_winner(user_choice, computer_choice):
+  print "You choice %s" % user_choice
+  print "Computer Selecting..."
+  sleep(1)
+  print "Computer selected %s" % computer_choice 
+  user_choice_index= options.index(user_choice)
+  computer_choice_index= options.index(computer_choice)
+  cont= "yes"
+  while cont=="yes":
+      
+     
+      if user_choice_index==computer_choice_index:
+          print "Oops, it's a tie"
+      elif user_choice=="R" and computer_choice== "S":
+          print won
+      elif user_choice== "P" and computer_choice== "R":
+          print won
+      elif user_choice== "S" and computer_choice== "P":
+          print won
+      elif options.index(user_choice)>2:
+          print "Invalid option, Rock or paper or scissor again!"
+          return
+      else:
+          print lost
+      cont = input("Would you like to play again?")
+      cont = cont.lower()
+      
+  
+ 
+
+def play_RPS():
+  print "Welcome to Rock, Paper and Scissor game!"
+  user_choice = raw_input ("Select R for Rock, P for paper and S for scissors, gotta make it simple no?")
+  user_choice= user_choice.upper()
+  computer_choice=options[randint(0,(len(options) - 1))]
+
+  decide_winner(user_choice, computer_choice)
+  
+play_RPS()
+
